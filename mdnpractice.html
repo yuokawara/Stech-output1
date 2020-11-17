@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+    <style>
+        #header {
+            background-color: aqua;
+        }
+
+        #footer {
+            background-color: aquamarine;
+        }
+
+        .highlight {
+            color: white;
+            background-color: black;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .base {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .alert {
+            border: 2px solid #333;
+            border-radius: 3px;
+            padding: 5px;
+            margin: 2px;
+            background-color: #efefef;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .success {
+            border-color: brown;
+            background-color: rgba(68, 230, 11, 0.3);
+        }
+
+        .warning {
+            border-color: rgb(255, 238, 3);
+            background-color: rgba(226, 12, 226, 0.3);
+        }
+
+        .error {
+            border-color: rgb(255, 20, 3);
+            background-color: rgba(248, 6, 6, 0.563);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h2>sample</h2>
+    </header>
+    <div class="base">Baseはあまりスタイルを持たせない</div>
+    <div class="alert success">サンプルメッセージ1</div>
+    <div class="alert warning">サンプルメッセージ2</div>
+    <div class="alert error">サンプルメッセージ3</div>
+
+    <div>
+        <h4>layoutは再利用が多いため、クラスセレクタを使う 例：l-grid等</h4>
+    </div>
+    <div>
+        <h4>Moduleはあらゆる再利用可能なオブジェクト　自分では部品と考える 例：ボタン、アラートメッセージ等</h4>
+    </div>
+    <div>
+        <h4>stateはjavascriptの制御などで変わる。 例：ボタンを押して変わるオブジェクト等</h4>
+    </div>
+
+    <section>
+        <img src="img/dinosaur.png"
+            alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+    </section>
+    <footer id="footer">
+        <h2>フッター</h2>
+    </footer>
+    <script>
+        const link = document.querySelector('a');
+        link.textContent = 'Mozilla Developer Network';
+        link.href = 'https://developer.mozilla.org';
+
+        const sect = document.querySelector('section');
+        const para = document.createElement('p');
+        para.textContent = 'We hope you enjoyed the ride.';
+        sect.appendChild(para);
+
+        const text = document.createTextNode(' — the premier source for web development knowledge.');
+        const linkPara = document.querySelector('p');
+        linkPara.appendChild(text);
+
+        sect.appendChild(linkPara);
+        // linkPara.remove();
+        // linkPara.parentNode.removeChild(linkPara);
+
+        para.setAttribute('class', 'highlight');
+        // para.style.color = 'white';
+        // para.style.backgroundColor = 'black';
+        // para.style.padding = '10px';
+        // para.style.width = '250px';
+        // para.style.textAlign = 'center';
+    </script>
+</body>
+
+</html>

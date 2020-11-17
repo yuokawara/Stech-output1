@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Css example</title>
+    <style>
+        /*-- layoutでもIDセレクタ使用する。 --*/
+        #header {
+            background-color: aqua;
+        }
+
+        #footer {
+            background-color: aquamarine;
+        }
+
+        .l-grid {
+            overflow: hidden;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .l-grid>li {
+            float: left;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* stateの一例 */
+        .is-active {
+            display: none;
+        }
+
+        .onclick {
+            background-color: aqua;
+        }
+
+        /* base等 */
+        .base {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .layout {
+            color: rgb(61, 199, 162);
+            font-weight: bold;
+        }
+
+        .module {
+            color: rgb(61, 70, 199);
+            font-weight: bold;
+        }
+
+        .state {
+            color: rgb(199, 61, 199);
+            font-weight: bold;
+        }
+
+        .success {
+            border-color: brown;
+            background-color: rgba(68, 230, 11, 0.3);
+        }
+
+        .warning {
+            border-color: rgb(255, 238, 3);
+            background-color: rgba(226, 12, 226, 0.3);
+        }
+
+        .error {
+            border-color: rgb(255, 20, 3);
+            background-color: rgba(248, 6, 6, 0.563);
+
+        }
+
+        .base-success {
+            border-color: brown;
+            background-color: rgba(68, 230, 11, 0.3);
+        }
+
+        .base-warning {
+            border-color: rgb(255, 238, 3);
+            background-color: rgba(226, 12, 226, 0.3);
+        }
+
+        .base-error {
+            border-color: rgb(255, 20, 3);
+            background-color: rgba(248, 6, 6, 0.563);
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SMACSS</h1>
+    <header id="header">
+        <h2>ヘッダー</h2>
+    </header>
+    <div class="base">Baseはあまりスタイルを持たせない</div>
+    <div class="base success">Baseを元にCSS設計をするサンプル</div>
+    <div class="base warning">Baseを設定しておけば、他のCSSを付け加えればいいだけ</div>
+    <div class="base error">しかし、問題もある。</div>
+    <br>
+    <img src="img/css_sample.png">
+    <div>.warningなどが具体性が無い。</div>
+    <div class="warning">その為、別の開発者がCSSを書いた際に、この様に影響を及ぼしてしまう。</div>
+    <br>
+    <div class="base">回避するには、具体性を持たせる様に心がける。</div>
+    <img src="img/css_answer.png">
+    <hr>
+    <div>
+        <h3 class="layout">layout</h3>
+        <h4>layoutは再利用が多いため、クラスセレクタを使う 例：l-grid等</h4>
+        <br>
+        <ul class="l-grid">
+            <li><img src="img/dog.jpg"></li>
+            <li><img src="img/cat.jpg"></li>
+            <li><img src="img/koala.jpeg"></li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <h3 class="module">Module</h3>
+        <h4>Moduleはあらゆる再利用可能なオブジェクト 自分では部品と考える 例：ボタン、アラートメッセージ等</h4>
+        <button>サンプル</button>
+    </div>
+    <hr>
+    <div>
+        <h3 class="state">State</h3>
+        <h4>stateはjavascriptの制御などで変わる。 例：ボタンを押して変わるオブジェクト等</h4>
+        <img src="img/state_sample.png">
+        <h4>工夫として、isをつける例。これだと他の物にも影響を与えてしまう可能性がある。</h4>
+        <h4>回避する一例</h4>
+        <img src="img/button_example.png">
+        <h4 class="important">SMACSSではstateカテゴリーは!importantを推奨している。</h4>
+        <p>※普段の使用は推奨しない。</p>
+    </div>
+
+    <footer id="footer">
+        <h2>フッター</h2>
+        <a href="bemtest.html">BEM</a>
+        <a href="mcsstest.html">MCSS</a>
+    </footer>
+    <script>
+
+    </script>
+</body>
+
+</html>

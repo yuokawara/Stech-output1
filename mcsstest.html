@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCSSテスト</title>
+    <style>
+        .bem {
+            display: flex;
+        }
+
+        .base__red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MCSS</h1>
+    <p>マルチレイヤーCSS</p>
+    <h2>主に4つで構成される</h2>
+    <br>
+    <div>
+        <h2>Foundation</h2>
+        <h4>土台になる部分、Baseのカテゴリと同じ。最初に読み込まれる部分。</h4>
+    </div>
+    <hr>
+    <div>
+        <h2>Base</h2>
+        <h4>SMACSSのModuleの部分。ボタン、フォーム、リストなど再利用可能な物</h4>
+        <h5>Baseレイヤーコンポーネント→Baseレイヤーコンポーネント 上書きできる。</h5>
+        <h5 class="base__red">Baseレイヤーコンポーネント→Projectレイヤーコンポーネント 上書き出来ない。</h5>
+        <h3>下層レイヤーからの上書きを禁止して、混同等を防いでいる。</h3>
+    </div>
+    <hr>
+    <div>
+        <h2>Project</h2>
+        <h4>Baseよりも上層レイヤー。具体的なページを構成する要素</h4>
+        <p>例：登録フォーム、ログインフォームのコメントリスト、ブロック等</p>
+        <h5>Projectレイヤーコンポーネント→Projectレイヤーコンポーネント 上書き可能。</h5>
+        <h5 class="base__red">Projectレイヤーコンポーネント→Baseレイヤーコンポーネント 上書き可能。</h5>
+    </div>
+    <hr>
+    <div>
+        <h2>Cosmetic</h2>
+        <h4>下層レイヤーに含まれない様なちょっとしたスタイル。</h4>
+        <p>例：リンクカラー、少々のプロパティで構成されるCSSクラス等</p>
+        <h5 class="base__red">Cosmeticレイヤー含め、コンテキストレイヤー（例外）から上書き出来ない</h5>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEMテスト</title>
+    <style>
+        .bem {
+            display: flex;
+        }
+
+        .block {
+            background-color: #efefef;
+            border: 1px solid;
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+        }
+
+        .block_modifier {
+            background-color: #59e15b;
+            border: 1px solid;
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+        }
+
+        .block__element {
+            background-color: rgb(224, 207, 22);
+            border: 1px solid;
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BEM</h1>
+    <p>命名規則でCSS設計を行うイメージ</p>
+    <h3>※MindBEMdingという手法もある。こちらの方が使っている会社は多いかも</h3>
+    <img src="img/bem_style.png">
+    <br>
+    <div>
+        <h2>Block</h2>
+        <h4>起点となる部分、この中にElement、Modifierが構成されている。</h4>
+    </div>
+    <hr>
+    <div>
+        <h2>Element</h2>
+        <h4>Blockを構成する要素。アンダースコアを2つ__つける。</h4>
+    </div>
+    <hr>
+    <div>
+        <h2>Modifier</h2>
+        <h4>Block、Elementのバリエーション違い。アンダースコアを1つ_つける</h4>
+        <p>状態を表すと思った方がいいかも・・・</p>
+    </div>
+    <div class="bem">
+        <div class="block">
+            <h3>Block</h3>
+            <div class="block__element">block__element</div>
+        </div>
+        <div class="block block_modifier">
+            <h3>block_modifier</h3>
+            <div class="block__element">block__element</div>
+        </div>
+    </div>
+    <hr>
+    <h2>Vueで使う場合は、scoped styleが使いやすい。</h2>
+    <img src="img/scoped.png">
+    <p>手軽に行える分、子コンポーネントには、親のコンポーネントの属性がついてしまう。</p>
+    <p>導入前に、ルールを設けることが大切。</p>
+    <p>そう考えると、BEM+scoped styleが一番安定する様な所見。</p>
+</body>
+
+</html>
