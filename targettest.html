@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>target</title>
+
+<body>
+    <h1>target test</h1>
+    <button id="button" type="button" data-new-Title="ボタンtest1">target test1</button>
+    <button id="button2" type="button" data-new-Title="ボタンtest2">target test2</button>
+    <script>
+        var button = document.getElementById('button');
+        var button2 = document.getElementById('button2');
+
+        button.addEventListener('click', changeTitle);
+        button2.addEventListener('click', changeTitle);
+
+        function changeTitle(event)
+        {
+            var button = event.target;
+            button.textContent = button.dataset.newTitle;
+        }
+    </script>
+</body>
+
+</html>
